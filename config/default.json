@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/pairApi",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "Jew2VDZBxwV3hKZvJb/WQmMJw49CVjocHDbIy0PpS3Q9kkPA72nGH+vIxdlHTadhbkedItxQ9uovDXwsZ/qMpw=="
+    },
+    "local": {}
+  }
+}
