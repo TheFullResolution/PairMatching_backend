@@ -8,19 +8,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
-  userId: {
-    type: Schema.Types.ObjectId,
-    ref: 'user'
-  },
-  name: {
-    type: String,
-    required: true
-  }
-});
 
 const pairSchema = new Schema({
-  members: [userSchema],
+  members: [ Schema.Types.ObjectId ],
   createdAt: {
     type: Date,
     'default': Date.now

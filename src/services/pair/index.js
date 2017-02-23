@@ -11,7 +11,7 @@ module.exports = function() {
     Model: pair,
     paginate: {
       default: 5,
-      max: 25
+      max: 200
     }
   };
 
