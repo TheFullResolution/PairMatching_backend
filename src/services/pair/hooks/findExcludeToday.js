@@ -1,12 +1,10 @@
 'use strict';
 
-const errors = require('feathers-errors');
 const moment = require('moment');
 
 module.exports = function(hook) {
-    if (hook.params.query.today) {
+    if (hook.params.query.nottoday) {
         const today = moment().startOf('day');
-        const tomorrow = moment(today).add(1, 'days');
         const userId = hook.params.user._id;
         return hook.app
             .service('pairs')
@@ -17,8 +15,7 @@ module.exports = function(hook) {
                         $eq: userId
                     },
                     createdAt: {
-                        $gte: today.toDate(),
-                        $lt: tomorrow.toDate()
+                      $lt: today.toDate(),
                     }
                 }
             })

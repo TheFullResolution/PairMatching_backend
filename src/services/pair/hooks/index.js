@@ -7,16 +7,17 @@ const common = require('feathers-hooks-common');
 
 const populateBuddy = common.populate('members', { service: 'users', field: 'members' });
 
-const checkPair = require('./checkPair.js');
-const getTodayPair = require('./getTodayPair.js');
+const createPair = require('./createPair.js');
+const findTodayPair = require('./findTodayPair.js');
+const findExcludeToday = require('./findExcludeToday.js');
 
 exports.before = {
   all: [
-    // auth.verifyToken(), auth.populateUser(), auth.restrictToAuthenticated()
+    auth.verifyToken(), auth.populateUser(), auth.restrictToAuthenticated()
   ],
   find: [],
   get: [],
-  create: [checkPair()],
+  create: [createPair()],
   update: [],
   patch: [],
   remove: []
@@ -24,7 +25,7 @@ exports.before = {
 
 exports.after = {
   all: [],
-  find: [getTodayPair, populateBuddy],
+  find: [findTodayPair, findExcludeToday, populateBuddy],
   get: [populateBuddy],
   create: [populateBuddy],
   update: [],

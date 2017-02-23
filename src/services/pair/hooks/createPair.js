@@ -23,9 +23,6 @@ function filterUsers(pairs, users) {
   return nonassigned[Math.floor(Math.random() * nonassigned.length)];
 }
 
-
-
-
 module.exports = function(options) {
   return function(hook) {
     const today = moment().startOf('day');
