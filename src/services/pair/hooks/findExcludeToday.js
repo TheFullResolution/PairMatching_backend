@@ -16,6 +16,9 @@ module.exports = function(hook) {
                     },
                     createdAt: {
                       $lt: today.toDate(),
+                    },
+                    $sort: {
+                        createdAt: -1
                     }
                 }
             })
